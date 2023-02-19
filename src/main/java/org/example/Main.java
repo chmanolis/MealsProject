@@ -1,6 +1,8 @@
 package org.example;
 
 
+import service.LoadData;
+
 import java.sql.*;
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +11,9 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
+       LoadData ld = new LoadData();
+       ld.loadCategories();
+
 
 
 

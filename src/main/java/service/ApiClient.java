@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class ApiClient {
 
 
-    public static final String BASE_URL = "www.themealdb.com/api/json/v1/1/random.php";
+    public static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
     public static final String SEARCH_BY_NAME_URL = BASE_URL+"search.php?s=";
     public static final String SEARCH_BY_FIRST_LETTER_URL = BASE_URL+"search.php?f=";
     public static final String FULL_MEAL_DETAILS_URL = BASE_URL+"lookup.php?i=";
@@ -23,7 +23,7 @@ public class ApiClient {
     public static final String LIST_BY_AREA  = BASE_URL+"list.php?a=list";
     public static final String  LIST_BY_INGREDIENTS= BASE_URL+"list.php?i=list";
     public static final String FILTER_BY_MAIN_INGREDIENT = BASE_URL+"filter.php?i=";
-    public static final String FILTER_BY_MAIN_CATEGORY = BASE_URL+"filter.php?c=";
+    public static final String FILTER_BY_CATEGORY = BASE_URL+"filter.php?c=";
     public static final String FILTER_BY_MAIN_AREA = BASE_URL+"filter.php?a=";
 
 

@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="squareup.okhttp3.logging.interceptor" type="repository">
+  <library name="org.eclipse.persistence" type="repository">
     <properties maven-id="com.squareup.okhttp3:logging-interceptor:4.10.0" />
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/logging-interceptor/4.10.0/logging-interceptor-4.10.0.jar!/" />
