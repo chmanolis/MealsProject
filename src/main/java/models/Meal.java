@@ -8,7 +8,7 @@ public class Meal {
     //strArea
     private final String area;
     //strInstructions
-    private final String instructions;
+    private  String instructions;
 
     public Meal(String n, String c,String a,String i) {
         this.mealName = n;
@@ -30,6 +30,9 @@ public class Meal {
     }
     public String getInstructions(){
         return this.instructions;
+    }
+    public void setInstructions(String instructions){
+        this.instructions=instructions;
     }
 
 
