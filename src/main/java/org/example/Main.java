@@ -1,8 +1,10 @@
 package org.example;
 
 
+import controllers.MealController;
 import models.Meal;
 import service.LoadData;
+import views.MealView;
 
 import java.sql.*;
 public class Main {
@@ -12,12 +14,19 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
-        new Meal("dummyfood","dummy","Greece","mdasdsaag");
+
+
+        Meal mi = new Meal("dummyfood","dummy","Greece","mdasdsaag");
+        MealView mv =new MealView();
+       MealController mc= new MealController(mi,mv);
+       mc.updateView();
+
+        /*
         LoadData ld = new LoadData();
        ld.loadCategories();
        ld.LoadofAreas();
       // ld.loadOfMainIng();
-
+      */
 
 
 
