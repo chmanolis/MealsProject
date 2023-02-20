@@ -13,6 +13,8 @@ public class Main {
 //        new Form1();
        LoadData ld = new LoadData();
        ld.loadCategories();
+       ld.LoadofAreas();
+      // ld.loadOfMainIng();
 
 
 

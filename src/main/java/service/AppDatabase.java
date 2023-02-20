@@ -1,3 +1,4 @@
+/*
 package service;
 
 import javax.persistence.EntityManager;
@@ -14,4 +15,4 @@ public class AppDatabase {
                 = Persistence.createEntityManagerFactory(COVID_DB);
         return emf.createEntityManager();
     }
-}
+}*/
