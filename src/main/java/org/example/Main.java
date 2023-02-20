@@ -1,6 +1,7 @@
 package org.example;
 
 
+import models.Meal;
 import service.LoadData;
 
 import java.sql.*;
@@ -11,7 +12,8 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
-       LoadData ld = new LoadData();
+        new Meal("dummyfood","dummy","Greece","mdasdsaag");
+        LoadData ld = new LoadData();
        ld.loadCategories();
        ld.LoadofAreas();
       // ld.loadOfMainIng();
