@@ -1,11 +1,8 @@
 package org.example;
 
 
-import controllers.MealController;
-import models.Meal;
+import service.AppDatabase;
 import service.FetchMealFromApi;
-import service.LoadData;
-import views.MealView;
 
 import java.sql.*;
 public class Main {
@@ -15,10 +12,15 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
-       FetchMealFromApi fromApi=new FetchMealFromApi();
-       fromApi.getMealFromApi("");
+        FetchMealFromApi fromApi = new FetchMealFromApi();
+        fromApi.getMealFromApi("");
         fromApi.getMealFromApi("Pasta");
         fromApi.getMealFromApi("Skata");
+        fromApi.getAreasAPI();
+        fromApi.getCategoriesAPI();
+        AppDatabase aDB = new AppDatabase();
+        aDB.updateAreas();
+       //insertNewUser(1,"bob","bob");
 
         /*
         Meal mi = new Meal("dummyfood","dummy","Greece","mdasdsaag");
@@ -33,11 +35,6 @@ public class Main {
        ld.LoadofAreas();
       // ld.loadOfMainIng();
       */
-
-
-
-
-
 
 
     }
@@ -122,7 +119,29 @@ public class Main {
             System.out.println(throwables.getLocalizedMessage());
         }
     }
-    private static Connection connect(){
+    /*
+    public static void updateAreas(){
+        try{
+            Connection connection = Main.connect();
+            String insertSQL = "Insert into MEALS.AREA values(?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
+            preparedStatement.setString(2, "dummyArea");
+            int count = preparedStatement.executeUpdate();
+            if (count>0) {
+                System.out.println(count+" record updated");
+            }else{
+                System.out.println("Something went wrong. Check the exception");
+            }
+            preparedStatement.close();
+            connection.close();
+            System.out.println("Done!");
+        } catch (SQLException throwables) {
+            System.out.println(throwables.getLocalizedMessage());
+        }
+    }
+
+*/
+    public static Connection connect(){
         String connectionString = "jdbc:derby:derbydemo3;create=true";
         Connection connection = null;
         try {
@@ -132,4 +151,5 @@ public class Main {
         }
         return connection;
     }
+
 }

@@ -15,7 +15,9 @@ public class Constants {
     public static final String FILTER_BY_MAIN_INGREDIENT = BASE_URL+"filter.php?i=";
     public static final String FILTER_BY_CATEGORY = BASE_URL+"filter.php?c=";
     public static final String FILTER_BY_MAIN_AREA = BASE_URL+"filter.php?a=";
+    //Database
+    public static final String connectionString = "jdbc:derby:derbydemo3;create=true";
     //QUERIES
-
+   public static final String checkAreaIfExistQ="Select MEALS.AREA_NAME from MEALS.AREA where AREA_NAME=";
 
 }
