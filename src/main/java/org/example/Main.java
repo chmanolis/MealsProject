@@ -3,6 +3,7 @@ package org.example;
 
 import controllers.MealController;
 import models.Meal;
+import service.FetchMealFromApi;
 import service.LoadData;
 import views.MealView;
 
@@ -14,12 +15,17 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
+       FetchMealFromApi fromApi=new FetchMealFromApi();
+       fromApi.getMealFromApi("");
+        fromApi.getMealFromApi("Pasta");
+        fromApi.getMealFromApi("Skata");
 
-
+        /*
         Meal mi = new Meal("dummyfood","dummy","Greece","mdasdsaag");
         MealView mv =new MealView();
        MealController mc= new MealController(mi,mv);
        mc.updateView();
+
 
         /*
         LoadData ld = new LoadData();

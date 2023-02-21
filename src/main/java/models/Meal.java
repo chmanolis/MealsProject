@@ -1,6 +1,7 @@
 package models;
 
 public class Meal {
+    private  final int mealId;
     //strMeal
     private final String mealName;
     //strCategoty
@@ -10,7 +11,8 @@ public class Meal {
     //strInstructions
     private  String instructions;
 
-    public Meal(String n, String c,String a,String i) {
+    public Meal(int mealId, String n, String c, String a, String i) {
+        this.mealId = mealId;
         this.mealName = n;
         this.category=c;
         this.area=a;

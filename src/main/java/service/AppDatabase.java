@@ -1,18 +1,11 @@
-/*
+
 package service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
+import models.Meal;
 
 public class AppDatabase {
+public void addNewMeal(Meal meal){
 
-    private static final String COVID_DB = "mealsDB";
+}
 
-    public static EntityManager getAppEntityManager() {
-        EntityManagerFactory emf
-                = Persistence.createEntityManagerFactory(COVID_DB);
-        return emf.createEntityManager();
-    }
-}*/
+}
