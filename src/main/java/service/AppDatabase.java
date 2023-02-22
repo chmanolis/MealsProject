@@ -21,44 +21,86 @@ public class AppDatabase {
         return connection;
     }
 
+
     //check if a country already exists
-    private static boolean checkIfAreaExistInDB(String str) {
-        if (str.equals(Constants.checkAreaIfExistQ + str)) {
-            return true;
-        } else {
-            return false;
-        }
+    public static boolean checkIfExistInDB(String str,String value) {
+        Boolean bl =false;
+        try{
+            Connection connection = connect();
+            String selectSQL = value;
+            PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+            preparedStatement.setString(1, str);
+            ResultSet rs = preparedStatement.executeQuery();
+            //String message;
+            bl= rs.next();
+            preparedStatement.close();
+            connection.close();
+
+        } catch (SQLException throwables) {
+            System.out.println(throwables.getLocalizedMessage());
+
+    }
+        return bl;
     }
 
     public void updateAreas() {
+        FetchMealFromApi fAreas = new FetchMealFromApi();
         int i = 0;
-        for (String category : fAreas.getAreasAPI()) {
-            if (!checkIfAreaExistInDB(category)) {
-
+        for (String area : fAreas.getAreasAPI()) {
+            if (!checkIfExistInDB(area,Constants.checkAreaIfExistQ)) {
                 try {
-                    FetchMealFromApi fAreas = new FetchMealFromApi();
                     Connection connection = connect();
-                    String insertSQL = "Insert into MEALS.AREA values(?)";
+                    String insertSQL = Constants.insertIntoAreas;
                     PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
-
-                    //preparedStatement.setInt(1,i);
-                    preparedStatement.setString(1, "dummyArea");
-
+                    preparedStatement.setInt(1,i);
+                    preparedStatement.setString(2, area);
+                    int count = preparedStatement.executeUpdate();
+                    if (count > 0) {
+                        System.out.println(count + " record updated");
+                    } else {
+                        System.out.println("Something went wrong. Check the exception");
+                    }
+                    preparedStatement.close();
+                    connection.close();
+                    System.out.println("Done!");
+                    i++;
+                } catch(SQLException throwables){
+                    System.out.println(throwables.getLocalizedMessage());
+                }
                 }
             }
 
-            int count = preparedStatement.executeUpdate();
-            if (count > 0) {
-                System.out.println(count + " record updated");
-            } else {
-                System.out.println("Something went wrong. Check the exception");
+
+    }
+    public void updateCategories(){
+        FetchMealFromApi fCategories = new FetchMealFromApi();
+        int i = 0;
+        for (String category : fCategories.getCategoriesAPI()) {
+            if (!checkIfExistInDB(category,Constants.checkCategoryifExistQ)) {
+                try {
+                    Connection connection = connect();
+                    String insertSQL = Constants.insertIntoCategories;
+                    PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
+                    preparedStatement.setInt(1,i);
+                    preparedStatement.setString(2, category);
+                    int count = preparedStatement.executeUpdate();
+                    if (count > 0) {
+                        System.out.println(count + " record updated");
+                    } else {
+                        System.out.println("Something went wrong. Check the exception");
+                    }
+                    preparedStatement.close();
+                    connection.close();
+                    System.out.println("Done!");
+                    i++;
+                } catch(SQLException throwables){
+                    System.out.println(throwables.getLocalizedMessage());
+                }
             }
-            preparedStatement.close();
-            connection.close();
-            System.out.println("Done!");
-        } catch(SQLException throwables){
-            System.out.println(throwables.getLocalizedMessage());
         }
+
+
+    }
     }
 
-}
+

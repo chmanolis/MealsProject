@@ -3,6 +3,7 @@ package org.example;
 
 import service.AppDatabase;
 import service.FetchMealFromApi;
+import utils.Constants;
 
 import java.sql.*;
 public class Main {
@@ -12,14 +13,18 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
+        /*
         FetchMealFromApi fromApi = new FetchMealFromApi();
         fromApi.getMealFromApi("");
         fromApi.getMealFromApi("Pasta");
         fromApi.getMealFromApi("Skata");
         fromApi.getAreasAPI();
-        fromApi.getCategoriesAPI();
+        fromApi.getCategoriesAPI();*/
         AppDatabase aDB = new AppDatabase();
         aDB.updateAreas();
+        aDB.updateCategories();
+
+       // System.out.println(AppDatabase.checkIfAreaExistInDB("Mexican"));
        //insertNewUser(1,"bob","bob");
 
         /*
