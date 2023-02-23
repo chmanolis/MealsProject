@@ -18,9 +18,18 @@ public class Constants {
     //Database
     public static final String connectionString = "jdbc:derby:derbydemo3;create=true";
     //QUERIES
-   public static final String checkAreaIfExistQ = "Select AREA_NAME from MEALS.AREA where AREA_NAME=?";
+    public static final String checkAreaIfExistQ = "Select AREA_NAME from MEALS.AREA where AREA_NAME=?";
     public static final String checkCategoryifExistQ = "Select CATEGORY_NAME from MEALS.CATEGORY where CATEGORY_NAME=?";
+    public static final String checkMealifExistQ = "Select MEAL_NAME from MEALS.MEAL where MEAL_NAME=?";
 
     public static final String insertIntoAreas ="Insert into MEALS.AREA values(?,?)";
     public static final String insertIntoCategories ="Insert into MEALS.CATEGORY values(?,?)";
+    public static final String searchForCategory ="Select CATEGORY_ID from MEALS.CATEGORY where CATEGORY_NAME =?";
+    public static final String searchForArea ="Select AREA_ID from MEALS.AREA where AREA_NAME =?";
+
+    public static final String insertIntoMeals ="Insert into MEALS.MEAL values(?,(SELECT AREA_ID FROM MEALS.AREA WHERE AREA_NAME=?),(SELECT CATEGORY_ID FROM MEALS.CATEGORY WHERE CATEGORY_NAME=?),?,?)";
+
+
+
+
 }

@@ -30,6 +30,10 @@ public class Meal {
         return this.area;
 
     }
+    public int getMealId(){
+        return this.mealId;
+
+    }
     public String getInstructions(){
         return this.instructions;
     }

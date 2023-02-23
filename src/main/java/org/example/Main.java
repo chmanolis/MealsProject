@@ -17,12 +17,19 @@ public class Main {
         FetchMealFromApi fromApi = new FetchMealFromApi();
         fromApi.getMealFromApi("");
         fromApi.getMealFromApi("Pasta");
-        fromApi.getMealFromApi("Skata");
+        fromApi.getMealFromApi("Skata");APP
         fromApi.getAreasAPI();
         fromApi.getCategoriesAPI();*/
+        FetchMealFromApi fromApi = new FetchMealFromApi();
         AppDatabase aDB = new AppDatabase();
-        aDB.updateAreas();
-        aDB.updateCategories();
+        //System.out.println(fromApi.getMealFromApi("").getMealId());
+        aDB.addMeal(fromApi.getMealFromApi("Pasta"));
+        aDB.addMeal(fromApi.getMealFromApi("Saganaki"));
+        aDB.addMeal(fromApi.getMealFromApi(""));
+
+
+        //aDB.updateAreas();
+        //aDB.updateCategories();
 
        // System.out.println(AppDatabase.checkIfAreaExistInDB("Mexican"));
        //insertNewUser(1,"bob","bob");
