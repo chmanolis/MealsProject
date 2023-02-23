@@ -19,14 +19,18 @@ public class Main {
         fromApi.getMealFromApi("Pasta");
         fromApi.getMealFromApi("Skata");APP
         fromApi.getAreasAPI();
-        fromApi.getCategoriesAPI();*/
+        fromApi.getCategoriesAPI();
+
         FetchMealFromApi fromApi = new FetchMealFromApi();
         AppDatabase aDB = new AppDatabase();
         //System.out.println(fromApi.getMealFromApi("").getMealId());
         aDB.addMeal(fromApi.getMealFromApi("Pasta"));
         aDB.addMeal(fromApi.getMealFromApi("Saganaki"));
         aDB.addMeal(fromApi.getMealFromApi(""));
-
+        */
+        MainScreen mn= new MainScreen();
+        mn.setLocationRelativeTo(null);
+        mn.setVisible(true);
 
         //aDB.updateAreas();
         //aDB.updateCategories();

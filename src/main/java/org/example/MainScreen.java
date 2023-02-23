@@ -1,7 +1,5 @@
 package org.example;
 
-import gui.UserMenu;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -43,12 +41,21 @@ public class MainScreen extends JFrame {
                 Password.setVisible(false);
                 Username.setVisible(false);
 
-                //new UserMenu();
+
+
             }
         });
     }
 
     public static void main(String[] args) {
         new MainScreen();
+        // Create and display the form
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainScreen().setVisible(true);
+
+            }
+        });
+
     }
 }
