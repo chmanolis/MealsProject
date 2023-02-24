@@ -28,6 +28,7 @@ public class Constants {
     public static final String searchForArea ="Select AREA_ID from MEALS.AREA where AREA_NAME =?";
 
     public static final String insertIntoMeals ="Insert into MEALS.MEAL values(?,(SELECT AREA_ID FROM MEALS.AREA WHERE AREA_NAME=?),(SELECT CATEGORY_ID FROM MEALS.CATEGORY WHERE CATEGORY_NAME=?),?,?)";
+    public static final String updateMealDetails ="Update MEALS.MEAL Set MEAL.INSTRUCTIONS=? where MEAL_NAME=?";
 
 
 

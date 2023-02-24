@@ -122,6 +122,25 @@ public class AppDatabase {
                 System.out.println(throwables.getLocalizedMessage());
             }
         }
+    }public void updateMealDetails(Meal meal) {       
+            try {
+                Connection connection = connect();
+                PreparedStatement preparedStatement = connection.prepareStatement(Constants.updateMealDetails);            
+                preparedStatement.setString(1, meal.getInstructions());
+                preparedStatement.setString(2, meal.getMealName());
+                int count = preparedStatement.executeUpdate();
+                if (count > 0) {
+                    System.out.println(count + " record updated");
+                } else {
+                    System.out.println("Something went wrong. Check the exception");
+                }
+                preparedStatement.close();
+                connection.close();
+                System.out.println("Done!");
+            } catch (SQLException throwables) {
+                System.out.println(throwables.getLocalizedMessage());
+            }
+        
     }
 
 
