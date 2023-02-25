@@ -5,7 +5,6 @@ import models.Meal;
 import service.AppDatabase;
 import service.FetchMealFromApi;
 import utils.Constants;
-
 import java.security.Provider;
 import java.sql.*;
 public class Main {
