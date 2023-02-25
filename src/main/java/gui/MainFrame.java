@@ -4,10 +4,7 @@ package gui;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author olia
- */
+
 public class MainFrame extends javax.swing.JFrame {
 
     /**
@@ -41,8 +38,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        mealSearchBtn =new javax.swing.JButton();
         manageDataBtn = new javax.swing.JButton();
-        showCountryBtn = new javax.swing.JButton();
+        showMealsByCategotyBtn = new javax.swing.JButton();
         showMapBtn = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
 
@@ -160,10 +158,24 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(450, 439));
 
+        mealSearchBtn.setBackground(new java.awt.Color(0, 204, 204));
+        mealSearchBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        mealSearchBtn.setForeground(new java.awt.Color(0, 102, 102));
+        mealSearchBtn.setText("ΑΝΖΗΤΗΣΗ ΓΕΥΜΑΤΟΣ");
+        mealSearchBtn.setMaximumSize(new java.awt.Dimension(350, 50));
+        mealSearchBtn.setMinimumSize(new java.awt.Dimension(350, 50));
+        mealSearchBtn.setPreferredSize(new java.awt.Dimension(350, 50));
+        /*
+        manageDataBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageDataBtnActionPerformed(evt);
+
+        });
+        */
         manageDataBtn.setBackground(new java.awt.Color(0, 204, 204));
         manageDataBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageDataBtn.setForeground(new java.awt.Color(0, 102, 102));
-        manageDataBtn.setText("Show Meal");
+        manageDataBtn.setText("ΔΙΑΧΕΙΡΙΣΗ ΔΕΔΟΜΕΝΩΝ");
         manageDataBtn.setMaximumSize(new java.awt.Dimension(350, 50));
         manageDataBtn.setMinimumSize(new java.awt.Dimension(350, 50));
         manageDataBtn.setPreferredSize(new java.awt.Dimension(350, 50));
@@ -174,17 +186,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         });
         */
-        showCountryBtn.setBackground(new java.awt.Color(0, 204, 204));
-        showCountryBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        showCountryBtn.setForeground(new java.awt.Color(0, 102, 102));
-        showCountryBtn.setText("ΠΡΟΒΟΛΗ ΔΕΔΟΜΕΝΩΝ Covid 19 ΑΝΑ ΧΩΡΑ");
-        showCountryBtn.setMaximumSize(new java.awt.Dimension(350, 50));
-        showCountryBtn.setMinimumSize(new java.awt.Dimension(350, 50));
-        showCountryBtn.setPreferredSize(new java.awt.Dimension(350, 50));
-       /* showCountryBtn.addActionListener(new java.awt.event.ActionListener() {
+
+
+        showMealsByCategotyBtn.setBackground(new java.awt.Color(0, 204, 204));
+        showMealsByCategotyBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        showMealsByCategotyBtn.setForeground(new java.awt.Color(0, 102, 102));
+        showMealsByCategotyBtn.setText("ΠΡΟΒΟΛΗ ΓΕΥΜΑΤΩΝ ΑΝΑ ΚΑΤΗΓΟΡΙΑ");
+        showMealsByCategotyBtn.setMaximumSize(new java.awt.Dimension(350, 50));
+        showMealsByCategotyBtn.setMinimumSize(new java.awt.Dimension(350, 50));
+        showMealsByCategotyBtn.setPreferredSize(new java.awt.Dimension(350, 50));
+       /* showMealsByCategotyBtn.addActionListener(new java.awt.event.ActionListener() {
 
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showCountryBtnActionPerformed(evt);
+                showMealsByCategotyBtnActionPerformed(evt);
             }
         });*/
 
@@ -221,7 +235,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(showCountryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(mealSearchBtn,javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(showMealsByCategotyBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(manageDataBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(showMapBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -231,12 +246,14 @@ public class MainFrame extends javax.swing.JFrame {
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
+                                .addComponent(mealSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(showMealsByCategotyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(showMapBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
                                 .addComponent(manageDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
-                                .addComponent(showCountryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(showMapBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
                                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(97, Short.MAX_VALUE))
         );
@@ -339,10 +356,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton manageDataBtn;
+    private javax.swing.JButton mealSearchBtn;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
-    private javax.swing.JButton showCountryBtn;
+    private javax.swing.JButton showMealsByCategotyBtn;
     private javax.swing.JButton showMapBtn;
     // End of variables declaration//GEN-END:variables
 }

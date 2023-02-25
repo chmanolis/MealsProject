@@ -1,10 +1,12 @@
 package org.example;
 
 
+import models.Meal;
 import service.AppDatabase;
 import service.FetchMealFromApi;
 import utils.Constants;
 
+import java.security.Provider;
 import java.sql.*;
 public class Main {
     public static void main(String[] args) {
@@ -13,46 +15,6 @@ public class Main {
 //        insertNewUser(2,"Christina","c1234");
 //        selectLogin("Christina","c1234");
 //        new Form1();
-        /*
-        FetchMealFromApi fromApi = new FetchMealFromApi();
-        fromApi.getMealFromApi("");
-        fromApi.getMealFromApi("Pasta");
-        fromApi.getMealFromApi("Skata");APP
-        fromApi.getAreasAPI();
-        fromApi.getCategoriesAPI();
-
-        FetchMealFromApi fromApi = new FetchMealFromApi();
-        AppDatabase aDB = new AppDatabase();
-        //System.out.println(fromApi.getMealFromApi("").getMealId());
-        aDB.addMeal(fromApi.getMealFromApi("Pasta"));
-        aDB.addMeal(fromApi.getMealFromApi("Saganaki"));
-        aDB.addMeal(fromApi.getMealFromApi(""));
-        */
-        MainScreen mn= new MainScreen();
-        mn.setLocationRelativeTo(null);
-        mn.setVisible(true);
-
-        //aDB.updateAreas();
-        //aDB.updateCategories();
-
-       // System.out.println(AppDatabase.checkIfAreaExistInDB("Mexican"));
-       //insertNewUser(1,"bob","bob");
-
-        /*
-        Meal mi = new Meal("dummyfood","dummy","Greece","mdasdsaag");
-        MealView mv =new MealView();
-       MealController mc= new MealController(mi,mv);
-       mc.updateView();
-
-
-        /*
-        LoadData ld = new LoadData();
-       ld.loadCategories();
-       ld.LoadofAreas();
-      // ld.loadOfMainIng();
-      */
-
-
     }
 
     static String selectLogin(String username, String password){
@@ -135,28 +97,7 @@ public class Main {
             System.out.println(throwables.getLocalizedMessage());
         }
     }
-    /*
-    public static void updateAreas(){
-        try{
-            Connection connection = Main.connect();
-            String insertSQL = "Insert into MEALS.AREA values(?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
-            preparedStatement.setString(2, "dummyArea");
-            int count = preparedStatement.executeUpdate();
-            if (count>0) {
-                System.out.println(count+" record updated");
-            }else{
-                System.out.println("Something went wrong. Check the exception");
-            }
-            preparedStatement.close();
-            connection.close();
-            System.out.println("Done!");
-        } catch (SQLException throwables) {
-            System.out.println(throwables.getLocalizedMessage());
-        }
-    }
 
-*/
     public static Connection connect(){
         String connectionString = "jdbc:derby:derbydemo3;create=true";
         Connection connection = null;

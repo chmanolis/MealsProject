@@ -34,7 +34,7 @@ public class FetchMealFromApi {
             String area = mealsArray.getJSONObject(0).getString("strArea");
             String instructions = mealsArray.getJSONObject(0).getString("strInstructions");
             System.out.println(id + " " + name + " " + category + " " + area + " " + instructions);
-            return new Meal(id, name, category, area, instructions);
+            return new Meal(id, name, category, area, instructions,0);
         }
     }
      public List<String> getCategoriesAPI() {
