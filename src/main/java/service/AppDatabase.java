@@ -2,6 +2,7 @@
 package service;
 
 import java.sql.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -185,6 +186,7 @@ public static Meal fetchMealDB(Meal meal) {
     }
     return meal;
 }
+
 }
 
 

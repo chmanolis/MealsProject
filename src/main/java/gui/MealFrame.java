@@ -1,7 +1,6 @@
 package gui;
 
 import controllers.MealController;
-import org.example.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +16,11 @@ public class MealFrame extends JFrame{
     private JLabel areaLb;
     private JLabel category;
     private JPanel panel1;
+    private JButton addToListBtn;
+    private  JFrame jFrame1;
+    private Menu  menu1;
+    private Menu  menu2;
+    private MenuBar  menuBar;
 
 
     public MealFrame() {
@@ -28,13 +32,13 @@ public class MealFrame extends JFrame{
         setVisible(true);
         setLocationRelativeTo(null);
 
+        instrArea.setLineWrap(true);
+        instrArea.setWrapStyleWord(true);
+
+
 
 
         exitBtn.setBackground(new java.awt.Color(0,204,204));
-
-        exitBtn.setMaximumSize(new java.awt.Dimension(350, 50));
-        exitBtn.setMinimumSize(new java.awt.Dimension(350, 50));
-        exitBtn.setPreferredSize(new java.awt.Dimension(350, 50));
         exitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,9 +48,7 @@ public class MealFrame extends JFrame{
             }
         });
         searchBtn.setBackground(new java.awt.Color(0,204,204));
-        searchBtn.setMaximumSize(new java.awt.Dimension(350, 50));
-        searchBtn.setMinimumSize(new java.awt.Dimension(350, 50));
-        searchBtn.setPreferredSize(new java.awt.Dimension(350, 50));
+
         searchBtn.setText("ΑΝΖΗΤΗΣΗ");
         searchBtn.addActionListener(new ActionListener() {
             @Override
@@ -54,20 +56,23 @@ public class MealFrame extends JFrame{
                 mc.searchForMeal(searchField.getText());
                 category.setText("ΚΑΤΗΓΟΡΙΑ : "+mc.getMealDetails().getCategory());
                 areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " +mc.getMealDetails().getArea());
-                instrArea.setLineWrap(true);
                 instrArea.setText(mc.getMealDetails().getInstructions());
             }
         });
         saveBtn.setBackground(new java.awt.Color(0,204,204));
-        saveBtn.setMaximumSize(new java.awt.Dimension(350, 50));
-        saveBtn.setMinimumSize(new java.awt.Dimension(350, 50));
-        saveBtn.setPreferredSize(new java.awt.Dimension(350, 50));
+
         saveBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
              mc.setMealInstructions(instrArea.getText());
+            }
+        });
+        addToListBtn.setBackground(new java.awt.Color(0,204,204));
 
-
+        addToListBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mc.setMealInstructions(instrArea.getText());
             }
         });
     }

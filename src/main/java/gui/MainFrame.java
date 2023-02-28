@@ -3,6 +3,7 @@ package gui;
 
 
 import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
 
 
 public class MainFrame extends javax.swing.JFrame {
@@ -165,13 +166,15 @@ public class MainFrame extends javax.swing.JFrame {
         mealSearchBtn.setMaximumSize(new java.awt.Dimension(350, 50));
         mealSearchBtn.setMinimumSize(new java.awt.Dimension(350, 50));
         mealSearchBtn.setPreferredSize(new java.awt.Dimension(350, 50));
-        /*
-        manageDataBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageDataBtnActionPerformed(evt);
+
+        mealSearchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new MealFrame();
+                dispose();
+            }
 
         });
-        */
+
         manageDataBtn.setBackground(new java.awt.Color(0, 204, 204));
         manageDataBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         manageDataBtn.setForeground(new java.awt.Color(0, 102, 102));
@@ -336,7 +339,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
-                new MainFrame().setVisible(true);
+
             }
         });
 

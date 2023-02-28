@@ -37,7 +37,7 @@ public class FetchMealFromApi {
             return new Meal(id, name, category, area, instructions,0);
         }
     }
-     public List<String> getCategoriesAPI() {
+     public  List<String> getCategoriesAPI() {
         ApiClient categoriesCall = new ApiClient(ApiClient.LIST_BY_CATEGORY);
 
 
