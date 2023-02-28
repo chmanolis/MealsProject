@@ -31,8 +31,13 @@ public class Meal {
         return this.area;
 
     }
+
     public int getMealId(){
         return this.mealId;
+
+    }
+    public int getMealViews(){
+        return this.mealViews;
 
     }
     public String getInstructions(){

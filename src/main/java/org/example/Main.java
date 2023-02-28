@@ -1,6 +1,8 @@
 package org.example;
 
 
+import controllers.MealController;
+import gui.MainFrame;
 import models.Meal;
 import service.AppDatabase;
 import service.FetchMealFromApi;
@@ -9,13 +11,13 @@ import java.security.Provider;
 import java.sql.*;
 public class Main {
     public static void main(String[] args) {
-//        createTableAndData();
-//        selectAll();
-//        insertNewUser(2,"Christina","c1234");
-//        selectLogin("Christina","c1234");
-//        new Form1();
+        MealController mc=new MealController();
+        mc.searchForMeal("Corba");
+        System.out.println(mc.getMealDetails().getMealName());
+        System.out.println(mc.getMealDetails().getMealViews());
     }
 
+/*
     static String selectLogin(String username, String password){
         try{
             Connection connection = connect();
@@ -108,4 +110,5 @@ public class Main {
         return connection;
     }
 
+}*/
 }

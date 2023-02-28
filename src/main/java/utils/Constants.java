@@ -30,7 +30,14 @@ public class Constants {
     public static final String insertIntoMeals ="Insert into MEALS.MEAL values(?,(SELECT AREA_ID FROM MEALS.AREA WHERE AREA_NAME=?),(SELECT CATEGORY_ID FROM MEALS.CATEGORY WHERE CATEGORY_NAME=?),?,?,0)";
     public static final String updateMealDetails ="Update MEALS.MEAL Set MEAL.INSTRUCTIONS=? where MEAL_NAME=?";
     public static final String fetchMealViews ="SELECT VIEWS FROM MEALS.MEAL WHERE MEAL.MEAL_NAME=?";
-    public static final String updateMealViews = "Update MEALS.MEAL Set MEAL.VIEWS=MEAL.VIEWS+1 where MEAL_NAME=?";
+    public static final String updateMealViews = "Update MEALS.MEAL Set MEALS.MEAL.VIEWS=MEALS.MEAL.VIEWS+1 where MEALS.MEAL.MEAL_NAME=?";
+
+public static final String getMealDetailsFromDB = "select MEAL_ID,MEAL_NAME,AREA_NAME,CATEGORY_NAME,INSTRUCTIONS,VIEWS from MEALS.MEAL" +
+        "    LEFT JOIN MEALS.AREA A on A.AREA_ID = MEALS.MEAL.AREA_ID" +
+        "    left join MEALS.CATEGORY C on C.CATEGORY_ID = MEALS.MEAL.CATEGORY_ID" +
+        "         where MEALS.MEAL.MEAL_NAME = ?";
+
+
 
 
 

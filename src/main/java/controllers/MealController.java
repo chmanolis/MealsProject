@@ -1,23 +1,35 @@
 package controllers;
 
 import models.Meal;
-import views.MealView;
+import service.AppDatabase;
+import service.FetchMealFromApi;
 
 public class MealController {
-    private final Meal model;
-    private MealView view;
-    public MealController(Meal model, MealView view){
-        this.model = model;
-        this.view = view;
+    FetchMealFromApi fmapi=new FetchMealFromApi();
+    AppDatabase appDB= new AppDatabase();
+    private Meal meal;
+
+    public MealController(){
+
     }
+
     public Meal getMealDetails(){
-        return model;
+        return this.meal;
     }
+    public void searchForMeal(String meanName){
+        this.meal=fmapi.getMealFromApi(meanName);
+        if(this.meal.getMealName() != null) {
+            AppDatabase.addMeal(this.meal);
+            AppDatabase.updateMealViews(this.meal);
+            this.meal = AppDatabase.fetchMealDB(this.meal);
+        }
+
+    }
+
     public void setMealInstructions(String instructions){
-        model.setInstructions(instructions);
+        meal.setInstructions(instructions);
+        AppDatabase.updateMealDetails(meal);
     }
-    public void updateView(){
-        view.printMealDetails(model);
-    }
+
 }
 

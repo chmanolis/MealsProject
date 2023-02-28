@@ -99,7 +99,7 @@ public class AppDatabase {
         }
     }
 
-    public void addMeal(Meal meal) {
+    public static void  addMeal(Meal meal) {
         if (!checkIfExistInDB(meal.getMealName(), Constants.checkMealifExistQ)) {
             try {
                 Connection connection = connect();
@@ -122,7 +122,7 @@ public class AppDatabase {
                 System.out.println(throwables.getLocalizedMessage());
             }
         }
-    }public void updateMealDetails(Meal meal) {       
+    }public static void updateMealDetails(Meal meal) {
             try {
                 Connection connection = connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(Constants.updateMealDetails);            
@@ -143,7 +143,7 @@ public class AppDatabase {
         
     }
 //increment MEAL VIEWS BBY 1
-public void updateMealViews(Meal meal) {
+public static void updateMealViews(Meal meal) {
     try {
         Connection connection = connect();
         PreparedStatement preparedStatement = connection.prepareStatement(Constants.updateMealViews);
@@ -162,9 +162,33 @@ public void updateMealViews(Meal meal) {
     }
 
 }
+public static Meal fetchMealDB(Meal meal) {
 
+    try {
+        Connection connection = connect();
+        String selectSQL = Constants.getMealDetailsFromDB;
+        PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+        preparedStatement.setString(1, meal.getMealName());
+        ResultSet rs = preparedStatement.executeQuery();
+        rs.next();
+        meal = new Meal(rs.getInt("MEAL_ID"), rs.getString("MEAL_name"),
+                rs.getString("CATEGORY_NAME"), rs.getString("AREA_NAME"), rs.getString("INSTRUCTIONS"),
+                rs.getInt("VIEWS"));
+        //String message;
 
+        preparedStatement.close();
+        connection.close();
+
+    } catch (SQLException throwables) {
+        System.out.println(throwables.getLocalizedMessage());
+
+    }
+    return meal;
 }
+}
+
+
+
 
 
 

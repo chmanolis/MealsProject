@@ -21,7 +21,7 @@ public class FetchMealFromApi {
         }
         ApiClient fetchMealByName = new ApiClient(url);
         JSONObject jsnobject = new JSONObject(fetchMealByName.fetch());
-        System.out.println(jsnobject);
+        //System.out.println(jsnobject);
 
         if (jsnobject.get("meals").equals(null)) {
             System.out.println("Meal not Found. Please try another name");
@@ -33,7 +33,7 @@ public class FetchMealFromApi {
             String category = mealsArray.getJSONObject(0).getString("strCategory");
             String area = mealsArray.getJSONObject(0).getString("strArea");
             String instructions = mealsArray.getJSONObject(0).getString("strInstructions");
-            System.out.println(id + " " + name + " " + category + " " + area + " " + instructions);
+            //System.out.println(id + " " + name + " " + category + " " + area + " " + instructions);
             return new Meal(id, name, category, area, instructions,0);
         }
     }
