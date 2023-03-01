@@ -12,6 +12,7 @@ import java.util.List;
 public class FetchMealFromApi {
     final private List<String> listOfAreas = new ArrayList<String>();
     final private List<String> listOfCategories = new ArrayList<String>();
+    final private List<String> listOfMealsByCategory =new ArrayList<>();
     public Meal getMealFromApi(@NotNull String mealName) {
         String url;
         if (mealName.equals("random")) {
@@ -73,5 +74,23 @@ public class FetchMealFromApi {
         }
         return listOfAreas;
     }
+    public List<String> getMealsByCategory(String category){
+        ApiClient fetchMealsBycategoryCall = new ApiClient(ApiClient.FILTER_BY_CATEGORY+category);
+        JSONObject jsnobject = new JSONObject(fetchMealsBycategoryCall.fetch());
+        JSONArray mealsByCategoryArray = jsnobject.getJSONArray("meals");
+        if (mealsByCategoryArray != null) {
+            //Iterating JSON array
+            for (int i = 0; i < mealsByCategoryArray.length(); i++) {
+                //Adding each element of JSON array into ArrayList
+                listOfMealsByCategory.add(mealsByCategoryArray.getJSONObject(i).getString("strMeal"));
+            }
+        }
+        for (String listOfMeasByCategory : listOfMealsByCategory) {
+            //Printing each element of ArrayList
+            System.out.println(listOfMeasByCategory);
+        }
+        return listOfMealsByCategory;
+    }
+    }
 
-}
+

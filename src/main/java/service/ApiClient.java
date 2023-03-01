@@ -26,12 +26,6 @@ public class ApiClient {
     public static final String FILTER_BY_CATEGORY = BASE_URL+"filter.php?c=";
     public static final String FILTER_BY_MAIN_AREA = BASE_URL+"filter.php?a=";
 
-
-
-
-
-
-
     private final OkHttpClient client;
     private final Request request;
 

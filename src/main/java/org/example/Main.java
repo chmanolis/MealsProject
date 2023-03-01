@@ -17,6 +17,7 @@ public class Main {
         System.out.println(mc.getMealDetails().getMealName());
         System.out.println(mc.getMealDetails().getMealViews());
         System.out.println(fm.getCategoriesAPI());
+        System.out.println(new FetchMealFromApi().getMealsByCategory("Beef"));
     }
 
 /*

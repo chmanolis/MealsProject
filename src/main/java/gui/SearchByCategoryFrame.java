@@ -12,8 +12,10 @@ public class SearchByCategoryFrame extends  JFrame{
     private JPanel jpanel1;
     private JComboBox comboBox1;
     private JButton okBtn;
-    private JList list1;
     private JButton exitBtn;
+    private JLabel jlb2;
+    private JComboBox comboBox2;
+    private JButton OK2Btn;
 
     public SearchByCategoryFrame() {
 
@@ -26,8 +28,8 @@ public class SearchByCategoryFrame extends  JFrame{
         setVisible(true);
         setLocationRelativeTo(null);
 
-
-
+        //pass values in combo box from categories API
+        comboBox1.setModel(new DefaultComboBoxModel<String>(fmc.getCategoriesAPI().toArray(new String[0])));
 
         okBtn.setBackground(new java.awt.Color(0,204,204));
 
@@ -45,4 +47,5 @@ public class SearchByCategoryFrame extends  JFrame{
         }
 
 
-    }
+
+}
