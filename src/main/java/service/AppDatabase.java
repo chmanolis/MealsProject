@@ -2,10 +2,10 @@
 package service;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import models.Meal;
 import org.example.Main;
 import utils.Constants;
@@ -21,7 +21,6 @@ public class AppDatabase {
         }
         return connection;
     }
-
 
     //check if a country already exists
     public static boolean checkIfExistInDB(String str, String value) {
@@ -186,6 +185,31 @@ public static Meal fetchMealDB(Meal meal) {
     }
     return meal;
 }
+    public List<Meal> generateStats(){
+       List<Meal> generateStats = new ArrayList<>();
+        try {
+            Connection connection = connect();
+            String selectSQL ="select MEAL_ID,MEAL_NAME,AREA_NAME,CATEGORY_NAME,INSTRUCTIONS,VIEWS from MEALS.MEAL" +
+                    "    LEFT JOIN MEALS.AREA A on A.AREA_ID = MEALS.MEAL.AREA_ID" +
+                    "    left join MEALS.CATEGORY C on C.CATEGORY_ID = MEALS.MEAL.CATEGORY_ID" +
+                    "    ORDER BY MEALS.MEAL.VIEWS DESC";
+            PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                generateStats.add(new Meal(rs.getInt("MEAL_ID"),rs.getString("MEAL_NAME"),
+                        rs.getString("CATEGORY_NAME"),rs.getString("AREA_NAME"),
+                        rs.getString("INSTRUCTIONS"),rs.getInt("VIEWS")));
+                }
+
+            preparedStatement.close();
+            connection.close();
+
+        } catch (SQLException throwables) {
+            System.out.println(throwables.getLocalizedMessage());
+
+        }
+        return generateStats ;
+    }
 
 }
 

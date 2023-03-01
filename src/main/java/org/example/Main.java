@@ -11,13 +11,8 @@ import java.security.Provider;
 import java.sql.*;
 public class Main {
     public static void main(String[] args) {
-        MealController mc=new MealController();
-        FetchMealFromApi fm = new FetchMealFromApi();
-        mc.searchForMeal("Corba");
-        System.out.println(mc.getMealDetails().getMealName());
-        System.out.println(mc.getMealDetails().getMealViews());
-        System.out.println(fm.getCategoriesAPI());
-        System.out.println(new FetchMealFromApi().getMealsByCategory("Beef"));
+       AppDatabase apdb= new AppDatabase();
+       System.out.println(apdb.generateStats());
     }
 
 /*

@@ -34,11 +34,14 @@ public class MealFrame extends JFrame{
 
         instrArea.setLineWrap(true);
         instrArea.setWrapStyleWord(true);
+
+
         mc.searchForMeal(mealName);
+        searchField.setText(mc.getMealDetails().getMealName());
         category.setText("ΚΑΤΗΓΟΡΙΑ : "+mc.getMealDetails().getCategory());
         areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " +mc.getMealDetails().getArea());
         instrArea.setText(mc.getMealDetails().getInstructions());
-
+        instrArea.add(new JScrollPane());
 
 
         exitBtn.setBackground(new java.awt.Color(0,204,204));

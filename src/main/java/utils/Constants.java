@@ -37,6 +37,11 @@ public static final String getMealDetailsFromDB = "select MEAL_ID,MEAL_NAME,AREA
         "    left join MEALS.CATEGORY C on C.CATEGORY_ID = MEALS.MEAL.CATEGORY_ID" +
         "         where MEALS.MEAL.MEAL_NAME = ?";
 
+public static final String getStatsFromDB = "select MEAL_ID,MEAL_NAME,AREA_NAME,CATEGORY_NAME,INSTRUCTIONS,VIEWS from MEALS.MEAL" +
+        "LEFT JOIN MEALS.AREA A on A.AREA_ID = MEALS.MEAL.AREA_ID" +
+        "left join MEALS.CATEGORY C on C.CATEGORY_ID = MEALS.MEAL.CATEGORY_ID" +
+        "ORDER BY MEAL.VIEWS DESC";
+
 
 
 

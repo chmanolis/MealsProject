@@ -1,7 +1,6 @@
 package service;
 
 import models.Meal;
-import models.MealList;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
