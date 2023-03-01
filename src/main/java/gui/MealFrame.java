@@ -23,7 +23,7 @@ public class MealFrame extends JFrame{
     private MenuBar  menuBar;
 
 
-    public MealFrame() {
+    public MealFrame(String mealName) {
         MealController mc=new MealController();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 600));
@@ -34,7 +34,10 @@ public class MealFrame extends JFrame{
 
         instrArea.setLineWrap(true);
         instrArea.setWrapStyleWord(true);
-
+        mc.searchForMeal(mealName);
+        category.setText("ΚΑΤΗΓΟΡΙΑ : "+mc.getMealDetails().getCategory());
+        areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " +mc.getMealDetails().getArea());
+        instrArea.setText(mc.getMealDetails().getInstructions());
 
 
 
@@ -78,7 +81,7 @@ public class MealFrame extends JFrame{
     }
 
         public static void main(String[] args) {
-            new MealFrame();
+            new MealFrame("random");
         }
 
 

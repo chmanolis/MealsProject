@@ -30,10 +30,33 @@ public class SearchByCategoryFrame extends  JFrame{
 
         //pass values in combo box from categories API
         comboBox1.setModel(new DefaultComboBoxModel<String>(fmc.getCategoriesAPI().toArray(new String[0])));
-
+        comboBox2.setVisible(false);
+        jlb2.setVisible(false);
+        OK2Btn.setVisible(false);
+        OK2Btn.setBackground(new java.awt.Color(0,204,204));
         okBtn.setBackground(new java.awt.Color(0,204,204));
 
+        okBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                comboBox2.setModel(new DefaultComboBoxModel<String>(fmc.getMealsByCategory(comboBox1.getSelectedItem().toString()).toArray(new String[0])));
+                comboBox2.setVisible(true);
+                OK2Btn.setVisible(true);
+                jlb2.setVisible(true);
+            }
+        });
+        OK2Btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                dispose();
+                MealFrame mlfm = new MealFrame(comboBox2.getSelectedItem().toString());
+                mlfm.setVisible(true);
+                dispose();
+            }
+        });
         exitBtn.setBackground(new java.awt.Color(0,204,204));
+
         exitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

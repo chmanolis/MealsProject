@@ -169,7 +169,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mealSearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new MealFrame();
+                new MealFrame("Default");
                 dispose();
             }
 
