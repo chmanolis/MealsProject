@@ -22,6 +22,8 @@ public class MealController {
             AppDatabase.addMeal(this.meal);
             AppDatabase.updateMealViews(this.meal);
             this.meal = AppDatabase.fetchMealDB(this.meal);
+        }else{
+           this.meal=new Meal(0,"Not Found","Not Found","Not Found","Not Found",0);
         }
 
     }

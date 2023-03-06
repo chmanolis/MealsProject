@@ -25,7 +25,7 @@ public class FetchMealFromApi {
 
         if (jsnobject.get("meals").equals(null)) {
             System.out.println("Meal not Found. Please try another name");
-            return null;
+            return new Meal(9999, "Not Found", "Not Found", "Not Found", "Not Found",0);
         } else {
             JSONArray mealsArray = jsnobject.getJSONArray("meals");
             int id = Integer.parseInt(mealsArray.getJSONObject(0).getString("idMeal"));

@@ -16,11 +16,6 @@ public class MealFrame extends JFrame{
     private JLabel areaLb;
     private JLabel category;
     private JPanel panel1;
-    private JButton addToListBtn;
-    private  JFrame jFrame1;
-    private Menu  menu1;
-    private Menu  menu2;
-    private MenuBar  menuBar;
 
 
     public MealFrame(String mealName) {
@@ -73,14 +68,7 @@ public class MealFrame extends JFrame{
              mc.setMealInstructions(instrArea.getText());
             }
         });
-        addToListBtn.setBackground(new java.awt.Color(0,204,204));
 
-        addToListBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mc.setMealInstructions(instrArea.getText());
-            }
-        });
     }
 
         public static void main(String[] args) {

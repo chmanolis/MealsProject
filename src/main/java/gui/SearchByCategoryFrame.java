@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class SearchByCategoryFrame extends  JFrame{
     private JPanel jpanel1;
@@ -50,7 +51,7 @@ public class SearchByCategoryFrame extends  JFrame{
             public void actionPerformed(ActionEvent e) {
 
                 dispose();
-                MealFrame mlfm = new MealFrame(comboBox2.getSelectedItem().toString());
+                MealFrame mlfm = new MealFrame(Objects.requireNonNull(comboBox2.getSelectedItem()).toString());
                 mlfm.setVisible(true);
                 dispose();
             }

@@ -270,16 +270,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menu1ActionPerformed
-   /*
-    private void manageDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDataBtnActionPerformed
-        manageDataUI frame = new manageDataUI();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        dispose();
-        }
-    */
-    //GEN-LAST:event_manageDataBtnActionPerformed
+    }
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
 
@@ -292,23 +283,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_exitBtnActionPerformed
-    /*
-    private void showMapBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMapBtnActionPerformed
-        showMapUI frame = new showMapUI();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        dispose();
 
-    }//GEN-LAST:event_showMapBtnActionPerformed
-
-    private void showCountryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCountryBtnActionPerformed
-        showCountryUI frame = new showCountryUI();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-        dispose();
-    }
-    //GEN-LAST:event_showCountryBtnActionPerformed
-     */
 
     /**
      * @param args the command line arguments
