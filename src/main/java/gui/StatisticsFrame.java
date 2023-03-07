@@ -1,8 +1,11 @@
 package gui;
-
-import com.itextpdf.text.PageSize;
+import com.itextpdf.text.*;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sun.jdi.Value;
 import models.Meal;
 import service.AppDatabase;
 import javax.swing.*;
@@ -11,9 +14,13 @@ import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class StatisticsFrame extends JFrame {
 
@@ -26,7 +33,6 @@ public class StatisticsFrame extends JFrame {
 
     public StatisticsFrame() {
 
-        //tableModel.setColumnIdentifiers(colNames);
         String[] colNames = {"No", "MEAL", "VIEWS"};
         setPreferredSize(new Dimension(800, 600));
 
@@ -83,38 +89,27 @@ public class StatisticsFrame extends JFrame {
         com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4.rotate());
         try {
             PdfWriter writer =
-                    PdfWriter.getInstance(document, new FileOutputStream("MealStats.pdf"));
+                    PdfWriter.getInstance(document, new FileOutputStream("MealStats"+java.time.LocalDate.now()+".pdf"));
 
             document.open();
+            AppDatabase appdb= new AppDatabase();
             PdfContentByte cb = writer.getDirectContent();
+            int i = 0;
+            PdfPTable table = new PdfPTable(3);
 
-            // Create the graphics as shapes
-            cb.saveState();
+            //fill pdf table with useful details of meal objects
 
-            Graphics2D g2 = cb.createGraphicsShapes(800, 600);
-            // Print the table to the graphics
-            Shape oldClip = g2.getClip();
-            g2.clipRect(0, 0, 800, 600);
-            scrPan.print(g2);
-            g2.setClip(oldClip);
-            g2.dispose();
-            cb.restoreState();
-            document.newPage();
+            table.addCell("No");
+            table.addCell("Name");
+            table.addCell("Views");
+            for (Meal meal : appdb.generateStats()) {
+                i++;
+                table.addCell(String.valueOf(i));
+                table.addCell(meal.getMealName());
+                table.addCell(String.valueOf(meal.getMealViews()));
 
-            // Create the graphics with pdf fonts
-            /*
-            cb.saveState();
-            g2 = cb.createGraphics(500, 500);
-*/
-            // Print the table to the graphics
-            /*
-            oldClip = g2.getClip();
-            g2.clipRect(0, 0, 500, 500);
-            scrPan.print(g2);
-            g2.setClip(oldClip);
-
-            g2.dispose();
-            cb.restoreState();*/
+            }
+            document.add(table);
 
         } catch (Exception e) {
             e.printStackTrace();
