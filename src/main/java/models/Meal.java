@@ -1,7 +1,7 @@
 package models;
 
 public class Meal {
-    private  final int mealId;
+    private final int mealId;
     //strMeal
     private final String mealName;
     //strCategoty
@@ -9,42 +9,48 @@ public class Meal {
     //strArea
     private final String area;
     //strInstructions
-    private  String instructions;
+    private String instructions;
     private int mealViews;
 
-    public Meal(int mealId, String n, String c, String a, String i,int v) {
+    public Meal(int mealId, String n, String c, String a, String i, int v) {
         this.mealId = mealId;
         this.mealName = n;
-        this.category=c;
-        this.area=a;
-        this.instructions=i;
-        this.mealViews=v;
+        this.category = c;
+        this.area = a;
+        this.instructions = i;
+        this.mealViews = v;
     }
-    public String getMealName(){
+
+    public String getMealName() {
         return this.mealName;
     }
-    public String getCategory(){
+
+    public String getCategory() {
         return this.category;
 
     }
-    public String getArea(){
+
+    public String getArea() {
         return this.area;
 
     }
 
-    public int getMealId(){
+    public int getMealId() {
         return this.mealId;
 
     }
-    public int getMealViews(){
+
+    public int getMealViews() {
         return this.mealViews;
 
     }
-    public String getInstructions(){
+
+    public String getInstructions() {
         return this.instructions;
     }
-    public void setInstructions(String instructions){
-        this.instructions=instructions;
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
 

@@ -13,16 +13,15 @@ public class ApiClient {
 
 
     public static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
-    public static final String SEARCH_BY_NAME_URL = BASE_URL+"search.php?s=";
+    public static final String SEARCH_BY_NAME_URL = BASE_URL + "search.php?s=";
 
-    public static final String RANDOM_MEAL_URL = BASE_URL+"random.php";
+    public static final String RANDOM_MEAL_URL = BASE_URL + "random.php";
+
+    public static final String LIST_BY_CATEGORY = BASE_URL + "list.php?c=list";
+    public static final String LIST_BY_AREA = BASE_URL + "list.php?a=list";
 
 
-    public static final String LIST_BY_CATEGORY = BASE_URL+"list.php?c=list";
-    public static final String LIST_BY_AREA  = BASE_URL+"list.php?a=list";
-
-
-    public static final String FILTER_BY_CATEGORY = BASE_URL+"filter.php?c=";
+    public static final String FILTER_BY_CATEGORY = BASE_URL + "filter.php?c=";
 
 
     private final OkHttpClient client;

@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MealFrame extends JFrame{
+public class MealFrame extends JFrame {
     private JButton exitBtn;
     private JButton saveBtn;
     private JTextField searchField;
@@ -19,7 +19,7 @@ public class MealFrame extends JFrame{
 
 
     public MealFrame(String mealName) {
-        MealController mc=new MealController();
+        MealController mc = new MealController();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 600));
         setContentPane(panel1);
@@ -33,13 +33,13 @@ public class MealFrame extends JFrame{
 
         mc.searchForMeal(mealName);
         searchField.setText(mc.getMealDetails().getMealName());
-        category.setText("ΚΑΤΗΓΟΡΙΑ : "+mc.getMealDetails().getCategory());
-        areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " +mc.getMealDetails().getArea());
+        category.setText("ΚΑΤΗΓΟΡΙΑ : " + mc.getMealDetails().getCategory());
+        areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " + mc.getMealDetails().getArea());
         instrArea.setText(mc.getMealDetails().getInstructions());
         instrArea.add(new JScrollPane());
 
 
-        exitBtn.setBackground(new java.awt.Color(0,204,204));
+        exitBtn.setBackground(new java.awt.Color(0, 204, 204));
         exitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,32 +48,32 @@ public class MealFrame extends JFrame{
                 dispose();
             }
         });
-        searchBtn.setBackground(new java.awt.Color(0,204,204));
+        searchBtn.setBackground(new java.awt.Color(0, 204, 204));
 
         searchBtn.setText("ΑΝΖΗΤΗΣΗ");
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 mc.searchForMeal(searchField.getText());
-                category.setText("ΚΑΤΗΓΟΡΙΑ : "+mc.getMealDetails().getCategory());
-                areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " +mc.getMealDetails().getArea());
+                category.setText("ΚΑΤΗΓΟΡΙΑ : " + mc.getMealDetails().getCategory());
+                areaLb.setText("ΠΡΟΕΛΕΥΣΗ : " + mc.getMealDetails().getArea());
                 instrArea.setText(mc.getMealDetails().getInstructions());
             }
         });
-        saveBtn.setBackground(new java.awt.Color(0,204,204));
+        saveBtn.setBackground(new java.awt.Color(0, 204, 204));
 
         saveBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             mc.setMealInstructions(instrArea.getText());
+                mc.setMealInstructions(instrArea.getText());
             }
         });
 
     }
 
-        public static void main(String[] args) {
-            new MealFrame("random");
-        }
+    public static void main(String[] args) {
+        new MealFrame("random");
+    }
 
 
 }

@@ -5,30 +5,31 @@ import service.AppDatabase;
 import service.FetchMealFromApi;
 
 public class MealController {
-    FetchMealFromApi fmapi=new FetchMealFromApi();
-    AppDatabase appDB= new AppDatabase();
+    FetchMealFromApi fmapi = new FetchMealFromApi();
+    AppDatabase appDB = new AppDatabase();
     private Meal meal;
 
-    public MealController(){
+    public MealController() {
 
     }
 
-    public Meal getMealDetails(){
+    public Meal getMealDetails() {
         return this.meal;
     }
-    public void searchForMeal(String meanName){
-        this.meal=fmapi.getMealFromApi(meanName);
-        if(this.meal.getMealName() != null) {
+
+    public void searchForMeal(String meanName) {
+        this.meal = fmapi.getMealFromApi(meanName);
+        if (this.meal.getMealName() != null) {
             AppDatabase.addMeal(this.meal);
             AppDatabase.updateMealViews(this.meal);
             this.meal = AppDatabase.fetchMealDB(this.meal);
-        }else{
-           this.meal=new Meal(0,"Not Found","Not Found","Not Found","Not Found",0);
+        } else {
+            this.meal = new Meal(0, "Not Found", "Not Found", "Not Found", "Not Found", 0);
         }
 
     }
 
-    public void setMealInstructions(String instructions){
+    public void setMealInstructions(String instructions) {
         meal.setInstructions(instructions);
         AppDatabase.updateMealDetails(meal);
     }

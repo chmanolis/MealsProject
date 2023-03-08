@@ -1,4 +1,5 @@
 package gui;
+
 import com.itextpdf.text.*;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfContentByte;
@@ -8,6 +9,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.sun.jdi.Value;
 import models.Meal;
 import service.AppDatabase;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.Document;
@@ -42,23 +44,23 @@ public class StatisticsFrame extends JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         AppDatabase appdb = new AppDatabase();
-        DefaultTableModel tableModel = new DefaultTableModel(colNames,0);
-
+        DefaultTableModel tableModel = new DefaultTableModel(colNames, 0);
 
 
         int i = 0;
 
         //fill table with useful details of meal objects
         for (Meal meal : appdb.generateStats()) {
-            i++;
-            Object[] mealOb = new Object[3];
-            mealOb[0] = i;
-            mealOb[1] = meal.getMealName();
-            mealOb[2] = meal.getMealViews();
-            tableModel.addRow(mealOb);
+            if (!meal.getMealName().equals("Not Found")) {
+                i++;
+                Object[] mealOb = new Object[3];
+                mealOb[0] = i;
+                mealOb[1] = meal.getMealName();
+                mealOb[2] = meal.getMealViews();
+                tableModel.addRow(mealOb);
 
+            }
         }
-
 
 
         statsTable.setModel(tableModel);
@@ -77,22 +79,24 @@ public class StatisticsFrame extends JFrame {
         pdfBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               print();
+                print();
             }
         });
 
     }
+
     public static void main(String[] args) {
         new StatisticsFrame();
     }
+
     private void print() {
         com.itextpdf.text.Document document = new com.itextpdf.text.Document(PageSize.A4.rotate());
         try {
             PdfWriter writer =
-                    PdfWriter.getInstance(document, new FileOutputStream("MealStats"+java.time.LocalDate.now()+".pdf"));
+                    PdfWriter.getInstance(document, new FileOutputStream("MealStats" + java.time.LocalDate.now() + ".pdf"));
 
             document.open();
-            AppDatabase appdb= new AppDatabase();
+            AppDatabase appdb = new AppDatabase();
             PdfContentByte cb = writer.getDirectContent();
             int i = 0;
             PdfPTable table = new PdfPTable(3);
@@ -103,12 +107,15 @@ public class StatisticsFrame extends JFrame {
             table.addCell("Name");
             table.addCell("Views");
             for (Meal meal : appdb.generateStats()) {
-                i++;
-                table.addCell(String.valueOf(i));
-                table.addCell(meal.getMealName());
-                table.addCell(String.valueOf(meal.getMealViews()));
+                if (!meal.getMealName().equals("Not Found")) {
+                    i++;
+                    table.addCell(String.valueOf(i));
+                    table.addCell(meal.getMealName());
+                    table.addCell(String.valueOf(meal.getMealViews()));
 
+                }
             }
+
             document.add(table);
 
         } catch (Exception e) {

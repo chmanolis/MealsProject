@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class SearchByCategoryFrame extends  JFrame{
+public class SearchByCategoryFrame extends JFrame {
     private JPanel jpanel1;
     private JComboBox comboBox1;
     private JButton okBtn;
@@ -20,8 +20,8 @@ public class SearchByCategoryFrame extends  JFrame{
 
     public SearchByCategoryFrame() {
 
-        FetchMealFromApi fmc= new FetchMealFromApi();
-        MealController mc=new MealController();
+        FetchMealFromApi fmc = new FetchMealFromApi();
+        MealController mc = new MealController();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 600));
         setContentPane(jpanel1);
@@ -34,8 +34,8 @@ public class SearchByCategoryFrame extends  JFrame{
         comboBox2.setVisible(false);
         jlb2.setVisible(false);
         OK2Btn.setVisible(false);
-        OK2Btn.setBackground(new java.awt.Color(0,204,204));
-        okBtn.setBackground(new java.awt.Color(0,204,204));
+        OK2Btn.setBackground(new java.awt.Color(0, 204, 204));
+        okBtn.setBackground(new java.awt.Color(0, 204, 204));
 
         okBtn.addActionListener(new ActionListener() {
             @Override
@@ -46,6 +46,7 @@ public class SearchByCategoryFrame extends  JFrame{
                 jlb2.setVisible(true);
             }
         });
+
         OK2Btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,7 +57,7 @@ public class SearchByCategoryFrame extends  JFrame{
                 dispose();
             }
         });
-        exitBtn.setBackground(new java.awt.Color(0,204,204));
+        exitBtn.setBackground(new java.awt.Color(0, 204, 204));
 
         exitBtn.addActionListener(new ActionListener() {
             @Override
@@ -65,11 +66,12 @@ public class SearchByCategoryFrame extends  JFrame{
                 mfm.setVisible(true);
                 dispose();
             }
-        });}
-        public static void main(String[] args) {
-            new SearchByCategoryFrame();
-        }
+        });
+    }
 
+    public static void main(String[] args) {
+        new SearchByCategoryFrame();
+    }
 
 
 }
